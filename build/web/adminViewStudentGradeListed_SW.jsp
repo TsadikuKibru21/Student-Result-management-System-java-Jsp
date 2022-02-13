@@ -25,7 +25,7 @@
             </div>
             <div class="col-sm-2">
                         <a href="index.jsp"><Button class="btn btn-success" style="width: 80px;">Home</Button></a>
-                         <a href="adminWork.jsp"><Button class="btn btn-success" style="width: 80px;">BACK</Button></a>
+                         <a href="adminviewSelect.jsp"><Button class="btn btn-success" style="width: 80px;">BACK</Button></a>
                     </div>
 <table class="table table-hover">
   <thead>
@@ -34,12 +34,12 @@
        <th scope="col">name</th>
        <th scope="col">department</th>
         <th scope="col">year</th>
-      <th scope="col">Automata</th>
-      <th scope="col">AdvancedProgramming</th>
-      <th scope="col">AssemblyLanguage</th>
-      <th scope="col">NumericalAnalaysis</th>
+      <th scope="col">Economics</th>
+      <th scope="col">Global trend</th>
+      <th scope="col">oop</th>
+      <th scope="col">oosad</th>
        <th scope="col">OperatingSystem</th>
-        <th scope="col">SoftwareEngineering</th>
+        <th scope="col">statstics</th>
          <th scope="col">grade</th>
     </tr>
   </thead>
@@ -51,24 +51,29 @@
                 Class.forName("com.mysql.jdbc.Driver");
                 con = DriverManager.getConnection("jdbc:mysql://localhost/cci","root","");
  
- String query = "Select s.id,s.name,s.department,s.year,c.Automata,c.AdvancedProgramming,c.AssemblyLanguage,c.NumericalAnalaysis,c.OperatingSystem,c.SoftwareEngineering, c.grade from student1 AS s, course AS c where s.id=c.stud_id ";
+ String query = "Select s.id,s.name,s.department,s.year,c.Econamics,c.Global_trend,c.oop,c.oosad,c.OperatingSystem,c.stastics, c.grade from student1 AS s, course1 AS c where s.id=c.stud_id ";
 pst = con.prepareStatement(query);
 rs = pst.executeQuery();
 while(rs.next()){
 %>
 <tr>
-    
+  
 <th scope="row"><%= rs.getString("id") %></th>
 <td><%=rs.getString("name")%></td>
 <td><%=rs.getString("department")%></td>
 <td><%=rs.getString("year")%></td>
-<td><%=rs.getString("Automata")%></td>
-<td><%=rs.getString("AdvancedProgramming")%></td>
-<td><%=rs.getString("AssemblyLanguage")%></td>
-<td><%=rs.getString("NumericalAnalaysis")%></td>
+<td><%=rs.getString("Econamics")%></td>
+<td><%=rs.getString("Global_trend")%></td>
+<td><%=rs.getString("oop")%></td>
+<td><%=rs.getString("oosad")%></td>
 <td><%=rs.getString("OperatingSystem")%></td>
-<td><%=rs.getString("SoftwareEngineering")%></td>
+<td><%=rs.getString("stastics")%></td>
 <td><%=rs.getString("grade")%></td>
+<td>
+  <a class="btn btn-success" href="adminUpdateStudentSW.jsp?id=<%=rs.getString("id")%>" role="button">Update</a>
+  <a class="btn btn-danger" href="adminRemoveStudentSW.jsp?id=<%=rs.getString("id")%>" role="button"onclick="return confirm('Are you sure you want to delete?')">Remove</a>   
+    
+</td>
 </tr>
 <% }%>
   </tbody>

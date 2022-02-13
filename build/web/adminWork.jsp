@@ -18,12 +18,11 @@ body {
 }
 </style>
 </head>
-<body style="padding:30px" >
-        
+<body style="padding:30px">       
         <div>
-<a href="home.jsp"  class="btn btn-success">Add Student</a>
-<a href="addCourse.jsp" class="btn btn-warning">ADD student Grade</a>
-<a href="adminViewStudent.jsp" class="btn btn-warning">View Student</a>
+<a href="addStudent.jsp"  class="btn btn-success">Add Student</a>
+<a href="SelectDepartment.jsp" class="btn btn-warning">ADD student Grade</a>
+<a href="adminviewSelect.jsp" class="btn btn-warning">View Student</a>
 <a href="Login.jsp" class="btn btn-warning">BACK</a>
 </div>
 </body>

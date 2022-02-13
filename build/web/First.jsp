@@ -14,17 +14,18 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-
- background-color: gray;
+ background-image: url("home1.jpg");    
 }
 </style>
 </head>
 <body style="padding:30px" >
         
         <div>
-<a href="First.jsp"  class="btn btn-success">Home</a>
-<a href="Login.jsp" class="btn btn-warning">Admin</a>
-<a href="Login.jsp" class="btn btn-warning">Student</a>
+            <h1>WelCome to This Page</h1>       
+            
+
+<a href="Login.jsp" class="btn btn-warning">LOGIN</a>
+
 
 </div>
 </body>

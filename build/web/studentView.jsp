@@ -21,11 +21,11 @@
                 <div  class="col-sm-4"></div>
                 <div  class="col-sm-4">
                     <h2 style="text-align: center">Student Details</h2>
-                </div>
+                </div> 
             </div>
             <div class="col-sm-2">
-                        
-                        <a href="Login.jsp"><Button class="btn btn-success" style="width: 80px;">BACK</Button></a>
+                         
+                        <a href="student_Insert_ID.jsp"><Button class="btn btn-success" style="width: 80px;">BACK</Button></a>
                     </div>
 <table class="table table-hover">
   <thead>
@@ -35,29 +35,38 @@
        <th scope="col">department</th>
         <th scope="col">year</th>
       <th scope="col">Automata</th>
-      <th scope="col">AdvancedProgramming</th>
-      <th scope="col">AssemblyLanguage</th>
-      <th scope="col">NumericalAnalaysis</th>
-       <th scope="col">OperatingSystem</th>
-        <th scope="col">SoftwareEngineering</th>
+      <th scope="col">Advanced Programming</th>
+      <th scope="col">Assembly Language</th>
+      <th scope="col">Numerical Analaysis</th>
+       <th scope="col">Operating System</th>
+        <th scope="col">Software Engineering</th>
          <th scope="col">grade</th>
     </tr>
   </thead>
   <tbody>
   <%
-       Connection con;
+      
+       Connection con;    
+           
+       if(request.getMethod().compareToIgnoreCase("post")==0){
+String c="cs";
+String s="sw";
+         String n=request.getParameter("id");
+         String d=request.getParameter("stud");
                 PreparedStatement pst;
                 ResultSet rs;
                 Class.forName("com.mysql.jdbc.Driver");
                 con = DriverManager.getConnection("jdbc:mysql://localhost/cci","root","");
- 
- String query = "Select s.id,s.name,s.department,s.year,c.Automata,c.AdvancedProgramming,c.AssemblyLanguage,c.NumericalAnalaysis,c.OperatingSystem,c.SoftwareEngineering, c.grade from student1 AS s, course AS c where s.id=c.stud_id ";
-pst = con.prepareStatement(query);
-rs = pst.executeQuery();
+//String query = "select department from student1 where id='"+n+"'";
+//pst = con.prepareStatement(query);
+//rs = pst.executeQuery();
+String sql="Select s.id,s.name,s.department,s.year,c.Automata,c.AdvancedProgramming,c.AssemblyLanguage,c.NumericalAnalaysis,c.OperatingSystem,c.SoftwareEngineering, c.grade from student1 AS s, course AS c where s.id=c.stud_id and s.id='"+n+"'";
+rs = con.createStatement().executeQuery(sql);
 while(rs.next()){
+
+//rs = con.createStatement().executeQuery(sql);
 %>
-<tr>
-    
+<tr>   
 <th scope="row"><%= rs.getString("id") %></th>
 <td><%=rs.getString("name")%></td>
 <td><%=rs.getString("department")%></td>
@@ -70,9 +79,10 @@ while(rs.next()){
 <td><%=rs.getString("SoftwareEngineering")%></td>
 <td><%=rs.getString("grade")%></td>
 </tr>
-<% }%>
+<% }}%>
   </tbody>
 </table>
+ 
  
 </body>
 </html>

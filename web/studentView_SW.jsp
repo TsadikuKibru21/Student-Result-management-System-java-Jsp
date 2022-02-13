@@ -34,12 +34,12 @@
        <th scope="col">name</th>
        <th scope="col">department</th>
         <th scope="col">year</th>
-      <th scope="col">Automata</th>
-      <th scope="col">Advanced Programming</th>
-      <th scope="col">Assembly Language</th>
-      <th scope="col">Numerical Analaysis</th>
+      <th scope="col">Economics</th>
+      <th scope="col">Global Trend</th>
+      <th scope="col">OOP</th>
+      <th scope="col">OOSAD</th>
        <th scope="col">Operating System</th>
-        <th scope="col">Software Engineering</th>
+        <th scope="col">Stastics</th>
          <th scope="col">grade</th>
     </tr>
   </thead>
@@ -60,7 +60,7 @@ String s="sw";
 //String query = "select department from student1 where id='"+n+"'";
 //pst = con.prepareStatement(query);
 //rs = pst.executeQuery();
-String sql="Select s.id,s.name,s.department,s.year,c.Automata,c.AdvancedProgramming,c.AssemblyLanguage,c.NumericalAnalaysis,c.OperatingSystem,c.SoftwareEngineering, c.grade from student1 AS s, course AS c where s.id=c.stud_id and s.id='"+n+"'";
+String sql="Select s.id,s.name,s.department,s.year,c.Econamics,c.Global_trend,c.oop,c.oosad,c.OperatingSystem,c.stastics,c.grade from student1 AS s, course1 AS c where s.id=c.stud_id and s.id='"+n+"'";
 rs = con.createStatement().executeQuery(sql);
 while(rs.next()){
 
@@ -71,12 +71,12 @@ while(rs.next()){
 <td><%=rs.getString("name")%></td>
 <td><%=rs.getString("department")%></td>
 <td><%=rs.getString("year")%></td>
-<td><%=rs.getString("Automata")%></td>
-<td><%=rs.getString("AdvancedProgramming")%></td>
-<td><%=rs.getString("AssemblyLanguage")%></td>
-<td><%=rs.getString("NumericalAnalaysis")%></td>
+<td><%=rs.getString("Econamics")%></td>
+<td><%=rs.getString("Global_trend")%></td>
+<td><%=rs.getString("oop")%></td>
+<td><%=rs.getString("oosad")%></td>
 <td><%=rs.getString("OperatingSystem")%></td>
-<td><%=rs.getString("SoftwareEngineering")%></td>
+<td><%=rs.getString("stastics")%></td>
 <td><%=rs.getString("grade")%></td>
 </tr>
 <% }}%>
